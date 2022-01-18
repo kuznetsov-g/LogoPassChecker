@@ -77,21 +77,50 @@
             </objects>
             <point key="canvasLocation" x="928.98550724637687" y="104.46428571428571"/>
         </scene>
-        <!--View Controller-->
+        <!--Welcome page-->
         <scene sceneID="itl-5K-1Yo">
             <objects>
-                <viewController id="wiN-xT-0tc" sceneMemberID="viewController">
+                <viewController id="wiN-xT-0tc" customClass="WelcomeViewController" customModule="LogoPassChecker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mLz-Y9-kza">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Have a nice day Logopasser" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="15" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UXr-Nw-hlR">
+                                <rect key="frame" x="92" y="388" width="230" height="174"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="UXr-Nw-hlR" secondAttribute="height" multiplier="115:87" id="HVf-O5-M6F"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SnellRoundhand-Bold" family="Snell Roundhand" pointSize="35"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PHG-Gs-bf7">
+                                <rect key="frame" x="130" y="721" width="155" height="44"/>
+                                <rect key="contentStretch" x="0.0" y="0.0" width="0.40000000000000002" height="0.40000000000000002"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="PHG-Gs-bf7" secondAttribute="height" multiplier="30:11" constant="35.000000000000014" id="r2l-N4-6mI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Go back"/>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="peN-dn-Ksh"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                        <constraints>
+                            <constraint firstItem="peN-dn-Ksh" firstAttribute="bottom" secondItem="PHG-Gs-bf7" secondAttribute="bottom" constant="97" id="1lZ-kz-by0"/>
+                            <constraint firstItem="PHG-Gs-bf7" firstAttribute="width" secondItem="mLz-Y9-kza" secondAttribute="height" multiplier="15:112" constant="35" id="5bc-LJ-cxU"/>
+                            <constraint firstItem="UXr-Nw-hlR" firstAttribute="centerX" secondItem="peN-dn-Ksh" secondAttribute="centerX" id="9Yr-cM-h3U"/>
+                            <constraint firstItem="UXr-Nw-hlR" firstAttribute="width" secondItem="mLz-Y9-kza" secondAttribute="height" multiplier="115:448" id="GwU-nj-vGT"/>
+                            <constraint firstItem="UXr-Nw-hlR" firstAttribute="centerY" secondItem="peN-dn-Ksh" secondAttribute="centerY" id="SoC-ik-Tb9"/>
+                            <constraint firstItem="PHG-Gs-bf7" firstAttribute="centerX" secondItem="peN-dn-Ksh" secondAttribute="centerX" id="hiy-Fb-ETO"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="kYq-tF-Vi4"/>
+                    <navigationItem key="navigationItem" title="Welcome page" id="kYq-tF-Vi4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2D0-xG-DzE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1643" y="104"/>
+            <point key="canvasLocation" x="1642.0289855072465" y="103.79464285714285"/>
         </scene>
         <!--Login-->
         <scene sceneID="EX6-Be-tmY">
@@ -119,8 +148,8 @@
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemPurpleColor">
             <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

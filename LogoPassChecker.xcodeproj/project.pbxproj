@@ -13,6 +13,7 @@
 		2CDB90AC2797358F00FF172E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CDB90AA2797358F00FF172E /* Main.storyboard */; };
 		2CDB90AE2797359000FF172E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CDB90AD2797359000FF172E /* Assets.xcassets */; };
 		2CDB90B12797359000FF172E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CDB90AF2797359000FF172E /* LaunchScreen.storyboard */; };
+		2CDB90B927974D0600FF172E /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDB90B827974D0600FF172E /* WelcomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		2CDB90AD2797359000FF172E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2CDB90B02797359000FF172E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2CDB90B22797359000FF172E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2CDB90B827974D0600FF172E /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 		2CDB90A32797358F00FF172E /* LogoPassChecker */ = {
 			isa = PBXGroup;
 			children = (
+				2CDB90B827974D0600FF172E /* WelcomeViewController.swift */,
 				2CDB90A42797358F00FF172E /* AppDelegate.swift */,
 				2CDB90A62797358F00FF172E /* SceneDelegate.swift */,
 				2CDB90A82797358F00FF172E /* LoginViewController.swift */,
@@ -139,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2CDB90A92797358F00FF172E /* LoginViewController.swift in Sources */,
+				2CDB90B927974D0600FF172E /* WelcomeViewController.swift in Sources */,
 				2CDB90A52797358F00FF172E /* AppDelegate.swift in Sources */,
 				2CDB90A72797358F00FF172E /* SceneDelegate.swift in Sources */,
 			);
