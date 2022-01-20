@@ -20,6 +20,22 @@ class LoginViewController: UIViewController {
         
     }
 
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let welcomeVC = segue.destination as? WelcomeViewController else { return }
+        
+        welcomeVC.loginName = loginTextField.text ?? "Friend"
+    }
+    
+    
+    /* @IBAction override func unwind(for unwindSegue: UIStoryboardSegue, towards subsequentVC: UIViewController) {
+        guard let welcomeVC = unwindSegue.source as? WelcomeViewController else { return }
+        loginTextField.text = ""
+        passwordTextField.text = ""*/
+        
+    @IBAction func unwind(for segue: UIStoryboardSegue) {
+        loginTextField.text = ""
+        passwordTextField.text = ""
+        
+    }
 }
 
