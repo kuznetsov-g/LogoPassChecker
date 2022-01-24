@@ -16,14 +16,14 @@ class LoginViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-    @IBAction func forgotPasswordButton(_ sender: Any) {
+    @IBAction func forgotPasswordButton() {
         helpAlert(title: "Do not forget it", message: """
                                                          login: 11
                                                          password: 22
                                                       """)
     }
     
-    @IBAction func loginButton(_ sender: Any) {
+    @IBAction func loginButton() {
         if loginTextField.text != "11"
          && passwordTextField.text != "22" {
             helpAlert(title: "Login denied!", message: "Login or Password incorrect. Please try again")
@@ -47,7 +47,7 @@ extension LoginViewController {
     private func helpAlert(title: String, message: String) {
         let forgotAlert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default) { _ in
-            self.loginTextField.text = ""
+
             self.passwordTextField.text = ""
         }
         forgotAlert.addAction(okAction)
@@ -56,22 +56,22 @@ extension LoginViewController {
     
 }
 
-
-extension LoginViewController {
+//эту часть я списал :( 
+extension LoginViewController: UITextFieldDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super .touchesBegan(touches, with: event)
+        view.endEditing(true)
     }
-}
 
-
-
-extension LoginViewController: UITextFieldDelegate {
+    
         func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-            textField.resignFirstResponder()
-            
-            textField.delegate = self
+            if textField == loginTextField {
+                passwordTextField.becomeFirstResponder()
+            } else {
+                loginButton()
+                performSegue(withIdentifier: "goToWelcomePage", sender: nil)
+            }
             return true
-            
             
         }
     
