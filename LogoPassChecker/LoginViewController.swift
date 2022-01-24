@@ -10,28 +10,31 @@ import UIKit
 class LoginViewController: UIViewController {
     @IBOutlet weak var loginTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var forgotPassButton: UIButton!
-    @IBOutlet weak var loginButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
-        
     }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let welcomeVC = segue.destination as? WelcomeViewController else { return }
-        
-        welcomeVC.loginName = loginTextField.text ?? "Friend"
+    @IBAction func forgotPasswordButton(_ sender: Any) {
+        helpAlert(title: "Do not forget it", message: """
+                                                         login: 11
+                                                         password: 22
+                                                      """)
     }
     
+    @IBAction func loginButton(_ sender: Any) {
+        if loginTextField.text != "11"
+         && passwordTextField.text != "22" {
+            helpAlert(title: "Login denied!", message: "Login or Password incorrect. Please try again")
+        }
+    }
     
-    /* @IBAction override func unwind(for unwindSegue: UIStoryboardSegue, towards subsequentVC: UIViewController) {
-        guard let welcomeVC = unwindSegue.source as? WelcomeViewController else { return }
-        loginTextField.text = ""
-        passwordTextField.text = ""*/
-        
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            guard let welcomeVC = segue.destination as? WelcomeViewController else { return }
+            welcomeVC.loginName = loginTextField.text ?? "Friend"
+    }
+    
     @IBAction func unwind(for segue: UIStoryboardSegue) {
         loginTextField.text = ""
         passwordTextField.text = ""
@@ -39,3 +42,38 @@ class LoginViewController: UIViewController {
     }
 }
 
+
+extension LoginViewController {
+    private func helpAlert(title: String, message: String) {
+        let forgotAlert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+            self.loginTextField.text = ""
+            self.passwordTextField.text = ""
+        }
+        forgotAlert.addAction(okAction)
+        present(forgotAlert, animated: true)
+    }
+    
+}
+
+
+extension LoginViewController {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super .touchesBegan(touches, with: event)
+    }
+}
+
+
+
+extension LoginViewController: UITextFieldDelegate {
+        func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+            textField.resignFirstResponder()
+            
+            textField.delegate = self
+            return true
+            
+            
+        }
+    
+    
+    }
