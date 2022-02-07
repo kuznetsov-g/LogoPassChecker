@@ -8,22 +8,20 @@
 import UIKit
 
 class PersonViewController: UIViewController {
-
+    //не знаю почему, но мне не удалось использовать text view. Почему-то на экране не отображался текст, хотя прозрачность и шрифты были указаны верно
+    //@IBOutlet weak var aboutMeTextView: UITextView!
+    @IBOutlet weak var aboutMeLabel: UILabel!
+    
+    var users : Users!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        aboutMeLabel.text = users.infoAbout.story
+        
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
 }

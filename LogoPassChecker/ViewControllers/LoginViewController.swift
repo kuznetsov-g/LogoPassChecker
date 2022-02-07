@@ -11,6 +11,8 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
+    private let userData = Users.getInfo()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -24,15 +26,35 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginButton() {
-        if loginTextField.text != "11"
-         && passwordTextField.text != "22" {
+        if loginTextField.text != userData.login.login
+            && passwordTextField.text != userData.login.password {
             helpAlert(title: "Login denied!", message: "Login or Password incorrect. Please try again")
         }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            guard let welcomeVC = segue.destination as? WelcomeViewController else { return }
-            welcomeVC.loginName = loginTextField.text ?? "Friend"
+        //guard let navigationController = segue.destination as? UINavigationController else { return }
+        guard let tabBarController = segue.destination as? UITabBarController else { return }
+        guard let viewControllers = tabBarController.viewControllers else { return }
+        
+        for viewController in viewControllers {
+            if let welcomeVC = viewController as? WelcomeViewController {
+                welcomeVC.loginName = userData.login.name
+            } else if let HobbiesVC = viewController as? HobbiesViewController {
+                HobbiesVC.users = userData
+            }
+            
+            else if let navigationVC = viewController as? UINavigationController {
+                let personVC = navigationVC.topViewController as! PersonViewController
+                personVC.users = userData
+                print("poluchilos")
+            
+        }
+        }
+                
+        
+        
+        
     }
     
     @IBAction func unwind(for segue: UIStoryboardSegue) {
@@ -41,6 +63,12 @@ class LoginViewController: UIViewController {
         
     }
 }
+
+
+
+
+
+
 
 
 extension LoginViewController {

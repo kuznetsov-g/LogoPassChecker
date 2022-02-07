@@ -8,22 +8,27 @@
 import UIKit
 
 class HobbiesViewController: UIViewController {
-
+   
+    @IBOutlet weak var hobbieTitle: UILabel!
+    @IBOutlet weak var hobbieLabel: UILabel!
+    @IBOutlet weak var randomHobbieButton: UIButton!
+    
+    var users : Users!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        hobbieTitle.text = "Push the button"
+        hobbieLabel.text = ""
+        
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func getRandomFact(_ sender: Any) {
+        let randomNum = Int.random(in: 0...users.hobbies.count-1)
+        hobbieTitle.text = users.hobbies[randomNum].title
+        hobbieLabel.text = users.hobbies[randomNum].story
     }
-    */
+    
 
+    
 }

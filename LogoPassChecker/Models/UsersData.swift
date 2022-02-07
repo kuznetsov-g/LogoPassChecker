@@ -12,8 +12,8 @@ struct Users {
     let infoAbout: InfoAbout
     let hobbies: [Hobbies]
     
-    static func getInfo() -> [Users] {
-        [
+    static func getInfo() -> Users {
+        
             Users(login: Login(login: "11"
                                , password: "22"
                                , name: "my friend")
@@ -39,7 +39,6 @@ And this, my friend, is the application that is now in your hands - one of my fi
                                                                    """)
                                                     
                   ])
-        ]
     }
 }
 
